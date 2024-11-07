@@ -10,34 +10,29 @@
           <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
               <div class="p-6 bg-white border-b border-gray-200">
 
-            {{-- ここがミスです！9以降の変更バリ！ --}}
-                {{-- <x-flash-message status="session('status')" />  --}}
+                   店名の繰り返しテーブル           
+                    {{-- ここがミスです！9以降の変更バリ！ --}}
+                      {{-- <x-auth-validation-errors class="mb-4" :errors="$errors" /> --}}
+                      {{-- <x-input-error class="mb-4" :messages="$errors->all()"/> --}}
 
-                <x-input-error class="mb-4" :messages="$errors->all()"/>
+                
 
-                 @foreach ($shops as $shop )
-                    <div class="w-1/2 p-4">
-                    <a href="{{ route('owner.shops.edit', ['shop' => $shop->id ])}}">  
-                    <div class="border rounded-md p-4">
-                      <div class="mb-4">
-                      @if($shop->is_selling)
-                        <span class="border p-2 rounded-md bg-blue-400 text-white">販売中</span>
-                      @else
-                      <span class="border p-2 rounded-md bg-red-400 text-white">停止中</span>
-                      @endif  
-                      </div>
-                      <div class="text-xl">{{ $shop->name }}</div>
-                      <x-thumbnail :filename="$shop->filename" type="shops" />
-                        @if(empty($shop->filename))
-                          <img src="{{asset('images/no_image.jpg')}}">
+                  @foreach ($shops as $shop)
+                  <div class="w-1/2 p-4">
+                   <a href="{{ route('owner.shops.edit', ['shop' => $shop->id ])}}">    
+                   <div class="border rounded-md p-4"> 
+                     <div class="mb-4">
+                        @if($shop->is_selling)
+                         <span class="border p-2 rounded-md bg-blue-400 text-white">販売中</span>
                         @else
-                          <img src="{{asset('storage/shops/' . $shop->filename)}}">
+                        <span class="border p-2 rounded-md bg-red-400 text-white">停止中</span>
                         @endif
-
-                    </div>
-                    </a>
-                    </div>
-                  @endforeach
+                     </div> 
+                      <div class="text-xl">  {{ $shop->name }}</div>              
+                    <x-thumbnail :filename="$shop->filename" type="shops"/>       
+                   </a>
+                  </div>   
+                  @endforeach  
               </div>
           </div>
       </div>

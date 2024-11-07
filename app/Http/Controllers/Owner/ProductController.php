@@ -11,8 +11,11 @@ use App\Models\Product;
 use App\Models\Stock;
 use App\Models\Shop;
 use App\Models\PrimaryCategory;
+use App\Models\SeconddaryCategory;
 use App\Models\Owner;
 use App\Http\Requests\ProductRequest;
+
+
 
 class ProductController extends Controller
 {
@@ -37,10 +40,10 @@ class ProductController extends Controller
     public function index()
     {
         // EagerLoadingなし
-        //$products = Owner::findOrFail(Auth::id())->shop->product;
+        // $products = Owner::findOrFail(Auth::id())->shop->product;
         
-        $ownerInfo = Owner::with('shop.product.imageFirst')
-        ->where('id', Auth::id())->get();
+         $ownerInfo = Owner::with('shop.product.imageFirst')
+         ->where('id', Auth::id())->get();
 
         // dd($ownerInfo);
         // foreach($ownerInfo as $owner){

@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use App\Models\User;
+use App\Models\Owner;
+use App\Models\Admin;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 

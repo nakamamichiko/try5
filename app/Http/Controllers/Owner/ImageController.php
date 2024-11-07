@@ -12,6 +12,8 @@ use App\Services\ImageService;
 use Illuminate\Support\Facades\Storage;
 
 
+
+
 class ImageController extends Controller
 {
     public function __construct()
@@ -106,6 +108,14 @@ class ImageController extends Controller
     {
         $image = Image::findOrFail($id);
 
+        $filePath = 'public/products/'. $image->filename;
+        
+        if(Storage::exists($filePath)){
+        Storage::delete($filePath);
+        }
+
+       
+
         $imageInProducts = Product::where('image1', $image->id)
         ->orWhere('image2', $image->id)
         ->orWhere('image3', $image->id)
@@ -138,7 +148,7 @@ class ImageController extends Controller
         if(Storage::exists($filePath)){
             Storage::delete($filePath);
         }
-
+ 
         Image::findOrFail($id)->delete(); 
 
         return redirect()

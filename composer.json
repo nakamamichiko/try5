@@ -8,9 +8,11 @@
         "php": "^8.0.2",
         "barryvdh/laravel-debugbar": "^3.13",
         "guzzlehttp/guzzle": "^7.2",
+        "intervention/image": "2.*",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "stripe/stripe-php": "^16.1"
     },
     "require-dev": {
         "askdkc/breezejp": "^1.8",
