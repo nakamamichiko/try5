@@ -76,3 +76,4 @@ php artisan storage:link で storageフォルダにリンク後、storage/app/pu
 
 ショップの画像を表示する場合は、 storage/app/public/shopsフォルダを作成し、画像を保存してください。
 # try5test
+# try51
